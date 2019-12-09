@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <title>My Chart</title>
+</head>
+<body>
+    
+    <div class="container">
+        <canvas id="myChart"></canvas>
+    </div>
+
+
+    <script>
+        let myChart = document.getElementById("myChart").getContext('2d');
+
+        // Global Option
+        Chart.defaults.global.defaultFontFamily =  'verdana';
+        Chart.defaults.global.defaultFontSize =  15;
+        Chart.defaults.global.defaultFontColor =  '#777';
+
+        let populationChart = new Chart(myChart, {
+            type: 'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+            data: {
+                labels: ['Dhanbad','Ranchi','Bokaro','Tata','Gumla','Kodarma', 'Giridih'],
+                datasets: [{
+                    label: 'Populations',
+                    data: [
+                        1160000,
+                        1070000,
+                        414820,
+                        1340000,
+                        1030000,
+                        717000,
+                        716259
+                    ],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(255, 206, 86, 0.6)',
+                        'rgba(75, 192, 192, 0.6)',
+                        'rgba(153, 102, 255, 0.6)',
+                        'rgba(255, 159, 64, 0.6)',
+                        'rgba(255, 99, 132, 0.6)',
+                    ],
+                    borderWidth: 1,
+                    borderColor: '#777',
+                    hoverBorderWidth: 2,
+                    hoverBorderColor: '#000'
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Populated City in Jharkhand',
+                    fontSize: 20
+                },
+                legend: {
+                    display: true,
+                    position: 'top',
+                    labels: {
+                        fontColor: '#000'
+                    }
+                },
+                layout: {
+                    padding: {
+                        top: 20,
+                        left:0,
+                        right: 0,
+                        bottom:0
+                    }
+                },
+                tooltips: {
+                    enabled: true
+                }
+            }
+        })
+    
+    </script>
+</body>
+</html>
